@@ -46,7 +46,7 @@ option = st.selectbox(
 st.write('You selected:', option)
 
 df = load_data(st.secrets["public_gsheets_url"])
-df[df["Blockchain"]] == option
+df[df["Blockchain"] == option ]
 # # Print results.
 # for row in df.itertuples():
 #     st.write(f"{row.name} has a :{row.pet}:")
