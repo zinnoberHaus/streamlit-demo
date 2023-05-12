@@ -39,8 +39,14 @@ def load_data(sheets_url):
     csv_url = sheets_url.replace("/edit#gid=", "/export?format=csv&gid=")
     return pd.read_csv(csv_url)
 
+option = st.selectbox(
+    'How would you like to be contacted?',
+    ('Bitcoin', 'Ethereum'))
+
+st.write('You selected:', option)
+
 df = load_data(st.secrets["public_gsheets_url"])
-df
+df[df["Blockchain"]] == option
 # # Print results.
 # for row in df.itertuples():
 #     st.write(f"{row.name} has a :{row.pet}:")
